@@ -11,7 +11,13 @@ export const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.sli
 export const capitalizeWords = (str: string) => str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
 
 // Format string to match xx.xx.xx.xx
-export const toIpStyle = (str: string) => str.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+export const toIpStyle = (str: string) => {
+  if (!str) return;
+  let parts = str.match(/.{1,2}/g);
+  if (!parts) return;
+  let new_value = parts.join(".");
+  return new_value;
+}
 
 // Format string to camelCase
 export const toCamelCase = (str: string) => str.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => (index === 0 ? word.toLowerCase() : word.toUpperCase())).replace(/\s+/g, '');
@@ -62,4 +68,18 @@ export const getDayNameByNumber = (id: number, lng: string) => {
       return frDays[id];
       break;
   }
+}
+
+export const toCurrency = (value: number, currency: string, lng: string) => {
+  if (lng === '' || lng === undefined) {
+    lng = 'fr-FR';
+  }
+
+  const formatter = new Intl.NumberFormat(lng, {
+    style: 'currency',
+    currency,
+    currencyDisplay: 'symbol'
+  });
+
+  return formatter.format(value);
 }
