@@ -1,8 +1,8 @@
-export const basicLog = (str: string, file?: string, line?: number) => console.log(`📜 ${file} at ${line} - ${str}`);
+export const basicLog = (str: string, file?: string, line?: number) => console.log(`📜 ${file} at line ${line} - ${str}`);
 
-export const warnLog = (str: string, file?: string, line?: number) => console.warn(`⚠️ ${file} at ${line} - ${str}`);
+export const warnLog = (str: string, file?: string, line?: number) => console.warn(`⚠️ ${file} at line ${line} - ${str}`);
 
-export const errorLog = (str: string, file?: string, line?: number) => console.error(`🚨 ${file} at ${line} - ${str}`);
+export const errorLog = (str: string, file?: string, line?: number) => console.error(`🚨 ${file} at line ${line} - ${str}`);
 
 // Capitalize the first letter of a string
 export const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
