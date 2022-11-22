@@ -4,7 +4,10 @@
   "description": "Personnal JS utilities package",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/EloxFire/daily-utilities/issues"
   },
-  "homepage": "https://github.com/EloxFire/daily-utilities#readme"
+  "homepage": "https://github.com/EloxFire/daily-utilities#readme",
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.9.3"
+  }
 }
